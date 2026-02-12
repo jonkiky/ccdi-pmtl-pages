@@ -5,9 +5,14 @@ import './index.css'
 import App from './App.jsx'
 import theme from './theme'
 
+const basename =
+  import.meta.env.BASE_URL === '/'
+    ? ''
+    : import.meta.env.BASE_URL.replace(/\/$/, '')
+
 createRoot(document.getElementById('root')).render(
   <ThemeProvider theme={theme}>
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <App />
     </BrowserRouter>
   </ThemeProvider>,
